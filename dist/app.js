@@ -92,8 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const match = path.match(/\/resume\/(.+)/);
     if (match) {
         const username = match[1];
-        // Fetch and display resume based on the username
-        fetchResumeByUsername(username);
+        fetchResumeByUsername(username); // Fetch and display the resume based on username
     }
 });
 function fetchResumeByUsername(username) {
