@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editable Resume Builder</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Editable Resume Builder</h1>
+      <form id="resumeForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" required />
+        <span class="error" id="usernameError">Username is required</span><br />
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" required />
+        <span class="error" id="nameError">Name is required</span><br />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" required />
+        <span class="error" id="emailError">Valid email is required</span><br />
+
+        <label for="contactNo">Contact Number:</label>
+        <input type="tel" id="contactNo" required />
+        <span class="error" id="contactNoError">Contact Number is required</span
+        ><br />
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" required />
+        <span class="error" id="dobError">Date of Birth is required</span><br />
+
+        <label for="nationality">Nationality:</label>
+        <input type="text" id="nationality" required />
+        <span class="error" id="nationalityError">Nationality is required</span
+        ><br />
+
+        <label for="education">Education:</label>
+        <textarea id="education" required></textarea>
+        <span class="error" id="educationError">Education is required</span
+        ><br />
+
+        <label for="workExperience">Work Experience:</label>
+        <textarea id="workExperience" required></textarea>
+        <span class="error" id="workExperienceError"
+          >Work Experience is required</span
+        ><br />
+
+        <label for="skills">Skills:</label>
+        <textarea id="skills" required></textarea>
+        <span class="error" id="skillsError">Skills are required</span><br />
+
+        <button type="button" id="generateCv">Generate Resume</button>
+      </form>
+      <div id="resumePreview" style="display: none"></div>
+      <div id="shareableLinkSection" style="display: none">
+        <p id="shareableLink"></p>
+        <button id="downloadPdfButton">Download as PDF</button>
+        <button id="saveChangesButton" style="display: none">
+          Save Changes
+        </button>
+      </div>
+
+      <!-- <div id="resumePreview" class="resume-preview"> -->
+      <!-- Resume preview will be shown here with contenteditable -->
+      <!-- </div>
+      <button id="saveChangesButton">Save Changes</button> -->
+
+      <!-- Shareable link and PDF download section -->
+      <!-- <div id="shareableSection" style="display: none">
+        <p>Shareable Link: <a id="shareableLink" target="_blank"></a></p>
+        <button id="copyLinkButton">Copy Link</button>
+        <button id="downloadPdf">Download as PDF</button>
+      </div> -->
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <script src="./dist/app.js"></script>
+  </body>
+</html>
