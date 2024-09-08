@@ -87,3 +87,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const path = window.location.pathname;
+    const match = path.match(/\/resume\/(.+)/);
+    if (match) {
+        const username = match[1];
+        // Fetch and display resume based on the username
+        fetchResumeByUsername(username);
+    }
+});
+function fetchResumeByUsername(username) {
+    // Replace this with actual logic to fetch and display resume data
+    console.log(`Fetching resume for username: ${username}`);
+    // Example:
+    // Fetch resume data from a backend or local storage
+    // Display the fetched resume data in the #resumePreview element
+}
