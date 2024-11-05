@@ -3,78 +3,361 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Editable Resume Builder</title>
+    <meta
+      name="description"
+      content="This is the dynamic Resume Builder which will take input and generate resume."
+    />
+    <title>Dynamic Resume Builder</title>
     <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
   </head>
   <body>
     <div class="container">
-      <h1>Editable Resume Builder</h1>
+      <h1>Resume Builder</h1>
+
       <form id="resumeForm">
-        <label for="username">Username:</label>
-        <input type="text" id="username" required />
-        <span class="error" id="usernameError">Username is required</span><br />
+        <h2>Personal Information</h2>
+        <div class="personal-information">
+          <div class="form-group">
+            <label for="name">UserName:</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Enter your UserName"
+            />
+            <span class="error" id="usernameError"
+              >This field is required.</span
+            >
+          </div>
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Enter your Name"
+            />
+            <span class="error" id="nameError">This field is required.</span>
+          </div>
+          <div class="form-group">
+            <label for="title">Professional Title:</label>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              placeholder="Enter Your Professional Title"
+            />
+            <span class="error" id="titleError">This field is required.</span>
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter Your Email"
+            />
+            <span class="error" id="emailError">This field is required.</span>
+          </div>
+          <div class="form-group">
+            <label for="contactNo">Contact Number:</label>
+            <input
+              type="tel"
+              id="contactNo"
+              name="contactNo"
+              placeholder="Enter Your Phone #"
+            />
+            <span class="error" id="contactNoError"
+              >This field is required.</span
+            >
+          </div>
+          <div class="form-group">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" />
+            <span class="error" id="dobError">This field is required.</span>
+          </div>
+          <div class="form-group">
+            <label for="address">Address:</label>
+            <input
+              type="text"
+              id="address"
+              name="address"
+              placeholder="Enter Your Address"
+            />
+            <span class="error" id="addressError">This field is required.</span>
+          </div>
+          <div class="form-group">
+            <label for="image">Image:</label>
+            <input type="file" id="photo" accept="image/*" />
+            <span class="error" id="imageError">This field is required.</span>
+          </div>
+        </div>
 
-        <label for="name">Name:</label>
-        <input type="text" id="name" required />
-        <span class="error" id="nameError">Name is required</span><br />
+        <h2>Summary</h2>
+        <div class="summary">
+          <textarea
+            id="summary"
+            name="summary"
+            placeholder="Enter Your Short Summary"
+          ></textarea>
+          <span class="error" id="summaryError">This field is required.</span>
+        </div>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" required />
-        <span class="error" id="emailError">Valid email is required</span><br />
+        <!-- <h2>Education</h2>
+        <div class="education">
+          <div class="education-input">
+            <input type="text" id="school" name="school" placeholder="School" />
+            <span class="error" id="schoolError">This field is required.</span>
+          </div>
+          <div class="education-input">
+            <input type="text" id="degree" name="degree" placeholder="Degree" />
+            <span class="error" id="degreeError">This field is required.</span>
+          </div>
+          <div class="education-input-date">
+            <div class="date-input">
+              <input
+                type="date"
+                id="education-start-date"
+                name="education-start-date"
+                placeholder="Starting Date"
+              />
+              <span class="error" id="education-start-dateError"
+                >This field is required.</span
+              >
+            </div>
+            <div class="date-input">
+              <input
+                type="date"
+                id="education-ending-date"
+                name="education-ending-date"
+                placeholder="Ending Date"
+              />
+              <span class="error" id="education-ending-dateError"
+                >This field is required.</span
+              >
+            </div>
+          </div>
+        </div> -->
+        <div class="education-heading">
+          <h2>Education</h2>
+          <button type="button" id="addEducation" class="add">
+            Add More Education
+          </button>
+        </div>
 
-        <label for="contactNo">Contact Number:</label>
-        <input type="tel" id="contactNo" required />
-        <span class="error" id="contactNoError">Contact Number is required</span
-        ><br />
+        <!-- Initial education input -->
+        <div class="education">
+          <div class="education-input">
+            <input type="text" id="school" name="school" placeholder="School" />
+            <span class="error" id="schoolError">This field is required.</span>
+          </div>
+          <div class="education-input">
+            <input type="text" id="degree" name="degree" placeholder="Degree" />
+            <span class="error" id="degreeError">This field is required.</span>
+          </div>
+          <div class="education-input-date">
+            <div class="date-input">
+              <input
+                type="date"
+                id="education-start-date"
+                name="education-start-date"
+                placeholder="Starting Date"
+              />
+              <span class="error" id="education-start-dateError"
+                >This field is required.</span
+              >
+            </div>
+            <div class="date-input">
+              <input
+                type="date"
+                id="education-ending-date"
+                name="education-ending-date"
+                placeholder="Ending Date"
+              />
+              <span class="error" id="education-ending-dateError"
+                >This field is required.</span
+              >
+            </div>
+          </div>
+        </div>
 
-        <label for="dob">Date of Birth:</label>
-        <input type="date" id="dob" required />
-        <span class="error" id="dobError">Date of Birth is required</span><br />
+        <!-- educationContainer for dynamically added inputs -->
+        <div id="educationContainer"></div>
 
-        <label for="nationality">Nationality:</label>
-        <input type="text" id="nationality" required />
-        <span class="error" id="nationalityError">Nationality is required</span
-        ><br />
+        <div class="certification-heading">
+          <h2>Certification</h2>
+          <button type="button" id="addCertification" class="add">
+            Add More Certification
+          </button>
+        </div>
 
-        <label for="education">Education:</label>
-        <textarea id="education" required></textarea>
-        <span class="error" id="educationError">Education is required</span
-        ><br />
+        <div id="certification-container">
+          <!-- Initial Certification Input -->
+          <div class="certification">
+            <div class="certification-input">
+              <input
+                type="text"
+                name="Certification-name"
+                id="certification-name1"
+                placeholder="Certification Name"
+              />
+            </div>
+            <div class="certification-input">
+              <input
+                type="text"
+                name="Organization-name"
+                id="organization-name1"
+                placeholder="Organization Name"
+              />
+            </div>
+          </div>
+        </div>
 
-        <label for="workExperience">Work Experience:</label>
-        <textarea id="workExperience" required></textarea>
-        <span class="error" id="workExperienceError"
-          >Work Experience is required</span
-        ><br />
+        <h2>Work Experience</h2>
+        <div class="work-experience">
+          <div class="work-experience-input">
+            <input
+              type="text"
+              id="company-name"
+              name="company-name"
+              placeholder="Company Name"
+            />
+            <span class="error" id="companyError">This field is required.</span>
+          </div>
+          <div class="work-experience-input">
+            <input
+              type="text"
+              id="position"
+              name="position"
+              placeholder="Position"
+            />
+            <span class="error" id="positionError"
+              >This field is required.</span
+            >
+          </div>
+          <div class="work-experience-input">
+            <textarea
+              id="company-description"
+              name="company-description"
+              placeholder="Company Description"
+            ></textarea>
+            <span class="error" id="company-descriptionError"
+              >This field is required.</span
+            >
+          </div>
+          <div class="work-experience-input">
+            <textarea
+              id="position-description"
+              name="position-description"
+              placeholder="Position Description"
+            ></textarea>
+            <span class="error" id="position-descriptionError"
+              >This field is required.</span
+            >
+          </div>
+          <div class="work-experience-date" style="width: 100%">
+            <div class="date-input">
+              <input
+                type="date"
+                id="work-start-date"
+                name="work-start-date"
+                placeholder="Starting Date"
+              />
+              <span class="error" id="work-start-dateError"
+                >This field is required.</span
+              >
+            </div>
+            <div class="date-input">
+              <input
+                type="date"
+                id="work-ending-date"
+                name="work-ending-date"
+                placeholder="Ending Date"
+              />
+              <span class="error" id="work-ending-dateError"
+                >This field is required.</span
+              >
+            </div>
+          </div>
+        </div>
 
-        <label for="skills">Skills:</label>
-        <textarea id="skills" required></textarea>
-        <span class="error" id="skillsError">Skills are required</span><br />
+        <div class="skill-heading">
+          <h2>Skills</h2>
+          <button type="button" id="addSkills" class="add">
+            Add More Skills
+          </button>
+        </div>
+        <div class="skills" id="skills-container">
+          <div class="skills-input">
+            <input
+              type="text"
+              id="skill1"
+              name="skill1"
+              placeholder="Enter Your skill"
+            />
+            <span class="error" id="schoolError">This field is required.</span>
+          </div>
+          <div class="skills-input">
+            <input
+              type="text"
+              id="skill0"
+              name="skill0"
+              placeholder="Enter Your skill"
+            />
+            <span class="error" id="schoolError">This field is required.</span>
+          </div>
+        </div>
+        <div class="language-heading">
+          <h2>Languages</h2>
+          <button type="button" id="addLanguages" class="add">
+            Add More Languages
+          </button>
+        </div>
+        <div class="languages" id="language-container">
+          <div class="languages-input">
+            <input
+              type="text"
+              id="language"
+              name="language"
+              placeholder="Enter Your Language"
+            />
+          </div>
+          <div class="languages-input">
+            <input
+              type="text"
+              id="language0"
+              name="language0"
+              placeholder="Enter Your Language"
+            />
+          </div>
+        </div>
 
-        <button type="button" id="generateCv">Generate Resume</button>
-      </form>
-      <div id="resumePreview" style="display: none"></div>
-      <div id="shareableLinkSection" style="display: none">
-        <p id="shareableLink"></p>
-        <button id="downloadPdfButton">Download as PDF</button>
-        <button id="saveChangesButton" style="display: none">
-          Save Changes
+        <button type="button" id="generateCv" class="add">
+          Generate Resume
         </button>
+      </form>
+
+      <div id="resumePreview">
+        <!-- Resume preview will be shown here -->
       </div>
-
-      <!-- <div id="resumePreview" class="resume-preview"> -->
-      <!-- Resume preview will be shown here with contenteditable -->
-      <!-- </div>
-      <button id="saveChangesButton">Save Changes</button> -->
-
-      <!-- Shareable link and PDF download section -->
-      <!-- <div id="shareableSection" style="display: none">
-        <p>Shareable Link: <a id="shareableLink" target="_blank"></a></p>
-        <button id="copyLinkButton">Copy Link</button>
-        <button id="downloadPdf">Download as PDF</button>
-      </div> -->
+      <button id="saveChanges" class="add" style="margin: 20px 0px">
+        Save Changes
+      </button>
+      <button id="shareLink" class="add" style="margin-left: 10px">
+        Share Link
+      </button>
+      <button id="downloadPdf" class="add">Download PDF</button>
+      <div id="uniqueLinkDisplay" style="display: block"></div>
+      <!-- <div id="shareLinkContainer"></div>
+      <button id="downloadResume">Download Resume</button> -->
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <!-- Include html2pdf.js from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+
     <script src="./dist/app.js"></script>
   </body>
 </html>

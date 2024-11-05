@@ -5,82 +5,178 @@
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  background-color: #ffffff;
+  background-color: #673ab7;
+  overflow-x: hidden;
+}
+
+h2,
+h1 {
+  color: #ffffff;
+  margin: 20px;
+}
+
+h2 {
+  text-align: start;
+  font-size: 30px;
+}
+
+h2 span {
+  color: rgba(0, 0, 0, 0.903);
+  font-size: 16px;
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 20px;
+  font-size: 40px;
 }
 
-.form-group {
-  margin-bottom: 15px;
+.personal-information,
+.skills,
+.languages {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
-
+.form-group,
+.skills-input,
+.languages-input {
+  margin: 10px;
+  width: 92%;
+}
 label {
   display: block;
-  margin-bottom: 5px;
+  margin: 0px 10px;
+  color: #ffffff;
+}
+.personal-information input,
+.skills input,
+.languages input {
+  width: 100%;
+  height: 40px;
+  margin: 10px 10px;
+  border-radius: 12px;
+  border: none;
+  font-size: 20px;
+  text-align: center;
+  background-color: #ffffff;
+  color: black;
+  transition: transform 0.8s;
 }
 
-input[type='text'],
-input[type='email'],
-input[type='tel'],
-input[type='date'],
-textarea {
+.personal-information input:hover,
+.skills input:hover {
+  transform: scale(1.06);
+}
+
+.summary textarea,
+.work-experience-input textarea {
+  width: 96%;
+  margin: 10px 10px;
+  border-radius: 12px;
+  border: none;
+  background-color: #ffffff;
+  color: black;
+  font-size: 20px;
+  transition: transform 0.5s;
+}
+
+.summary textarea:hover,
+.work-experience-input textarea:hover {
+  transform: scale(0.9);
+}
+
+.education {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  box-sizing: border-box;
-  background-color: #eee;
-  color: #333;
+}
+
+.education-input-date,
+.work-experience-date {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* flex-wrap: wrap; */
+}
+
+.date-input {
+  margin: 10px 5px;
+  width: 92%;
+}
+.work-experience,
+.education,
+.certification {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.work-experience-input {
+  width: 100%;
+}
+
+.education-input input,
+.work-experience-input input,
+.certification-input input {
+  width: 96%;
+  height: 40px;
+  margin: 10px 10px;
+  border-radius: 12px;
+  border: none;
+  font-size: 20px;
+  text-align: center;
+  background-color: #ffffff;
+  color: black;
+  transition: transform 0.8s;
+}
+
+.education-input-date input:hover,
+.work-experience-date input:hover,
+.work-experience-input input:hover,
+.date-input input:hover,
+.certification-input input:hover,
+.languages-input input:hover {
+  transform: scale(1.06);
+}
+
+.education-input-date input,
+.date-input input,
+.work-experience-date input {
+  width: 100%;
+  height: 40px;
+  margin: 10px 10px;
+  border-radius: 12px;
+  border: none;
+  font-size: 20px;
+  text-align: center;
+  background-color: #ffffff;
+  color: black;
+  transition: transform 0.8s;
 }
 
 .error {
-  color: red;
+  color: #ff5733;
   display: none;
   margin-top: 5px;
   font-size: 12px;
 }
-#resumePreview {
-  border: 1px solid #ccc;
-  padding: 20px;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-}
 
-#resumePreview h2 {
-  margin-top: 0;
-  font-size: 1.5em;
-  color: #333;
-}
-
-#resumePreview p {
-  margin: 10px 0;
-  font-size: 1em;
-  color: #555;
-  line-height: 1.5;
-  word-wrap: break-word;
-}
-
-#resumePreview h3 {
-  border-bottom: 2px solid #007bff;
-  padding-bottom: 5px;
-  font-size: 1.2em;
-  color: #007bff;
-}
-textarea {
-  min-height: 100px;
-  max-width: 100%;
-  box-sizing: border-box;
-}
-#generateCv {
+.add {
   background-color: #ff5733;
   color: white;
   padding: 10px 20px;
+  margin-right: 10px;
   border: none;
-  border-radius: 3px;
+  border-radius: 8px;
   cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.skill-heading,
+.education-heading,
+.certification-heading,
+.language-heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #resumePreview {
@@ -88,18 +184,278 @@ textarea {
   border: 1px solid #ccc;
   padding: 20px;
   border-radius: 5px;
-}
-#saveChangesButton {
-  display: none; /* Hidden by default */
-  margin-top: 10px;
-  padding: 8px 12px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  background-color: #f9f9f9;
 }
 
-#saveChangesButton:hover {
-  background-color: #45a049;
+#resumePreview h3 {
+  border-bottom: 2px solid #673ab7;
+  width: 100%;
+  padding-bottom: 5px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #673ab7;
+}
+
+/* #generateCv {
+  background-color: #ff5733;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+} */
+
+#generateCv:hover,
+.add:hover {
+  background-color: #e04c2d;
+}
+/* Resume-Section  */
+.resume-container {
+  font-family: Arial, sans-serif;
+  color: #333;
+  min-width: 600px;
+}
+
+.top {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-top: 20px;
+  display: flex;
+}
+
+.profile-pic {
+  text-align: center;
+  width: 35%;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-pic img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: #ffffff;
+  border: 10px solid #ffffff;
+  box-shadow: 2px 2px 40px 12px rgba(0, 0, 0, 0.4);
+}
+
+.info {
+  text-align: center;
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  padding: 10px 20px;
+}
+
+.info h1 {
+  font-size: 29px;
+  font-weight: bold;
+  color: #673ab7;
+  margin-bottom: 4px;
+}
+
+.info h2 {
+  font-size: 20px;
+  font-weight: normal;
+  color: #292d2d;
+  text-align: center;
+}
+
+.contact-info {
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  padding: 10px 20px;
+}
+
+.contact-info p {
+  margin-bottom: 10px;
+}
+
+.contact-info i {
+  margin-right: 10px;
+}
+
+.main {
+  display: flex;
+  padding: 20px;
+}
+
+.left {
+  width: 35%;
+  padding: 10px 20px;
+  border-right: 1px solid #ddd;
+}
+
+.left ul {
+  line-height: 1.6rem;
+}
+
+.left h3,
+.right h3 {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.left p,
+.right p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.right {
+  width: 65%;
+  padding: 10px 20px;
+}
+
+.right p {
+  font-weight: bold;
+}
+
+.right .education,
+.right .certifications {
+  margin-top: 20px;
+}
+
+.right .education h3,
+.right .certifications h3 {
+  margin-top: 20px;
+}
+/* resume section end  */
+
+/* Media Queries for Small Screens */
+
+@media only screen and (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+  .personal-information,
+  .skills,
+  .languages {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .personal-information input,
+  .skills input,
+  .languages input {
+    height: 40px;
+    font-size: 20px;
+  }
+
+  /* .summary textarea,
+  .work-experience-input textarea {
+    width: 90%;
+    font-size: 16px;
+  } */
+
+  .education-input input,
+  .work-experience-input input,
+  .certification-input input {
+    height: 40px;
+    font-size: 20px;
+  }
+
+  /* .top {
+    flex-direction: column;
+  } */
+
+  /* .profile-pic {
+    width: 50%;
+  }
+
+  .info {
+    width: 50%;
+  } */
+
+  /* .main {
+    flex-direction: column;
+  } */
+
+  /* .left {
+    width: 100%;
+    border-right: none;
+  }
+
+  .right {
+    width: 100%;
+  } */
+  #resumePreview {
+    overflow-x: auto;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .container {
+    padding: 5px;
+  }
+
+  .personal-information input,
+  .skills input,
+  .languages input {
+    height: 40px;
+    font-size: 16px;
+  }
+
+  /* .summary textarea,
+  .work-experience-input textarea {
+    width: 85%;
+    font-size: 16px;
+  } */
+  .education-input-date,
+  .work-experience-date {
+    grid-template-columns: 1fr;
+  }
+
+  .education-input input,
+  .work-experience-input input,
+  .certification-input input {
+    height: 40px;
+    font-size: 16px;
+  }
+
+  /* .top {
+    padding: 10px 0;
+  }
+
+  .profile-pic {
+    width: 60%;
+  }
+
+  .info {
+    width: 60%;
+  }
+
+  .main {
+    padding: 10px;
+  }
+
+  .left,
+  .right {
+    padding: 10px;
+  } */
+}
+@media print {
+  body {
+    -webkit-print-color-adjust: exact; /* Preserve colors */
+    color-adjust: exact; /* Preserve colors */
+  }
+
+  .resume-container {
+    /* Adjust styles for better print layout */
+    font-size: 12pt; /* Adjust font size if necessary */
+  }
+
+  /* Hide any elements that should not appear in the PDF */
+  .no-print {
+    display: none;
+  }
 }
