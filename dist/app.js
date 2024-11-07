@@ -41,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const downloadResumeAsPDF = () => {
         if (window.html2pdf) {
             const opt = {
-                margin: 1,
                 filename: 'resume.pdf',
                 image: { type: 'jpeg', quality: 0.98 },
                 html2canvas: { scale: 2 },
